@@ -1,0 +1,776 @@
+$primary: #5C7C5F;
+$accent: #B89251;
+$gray-text: #757575;
+$bg-card: #EFF6F3;
+$bg-step: #F6F1EC;
+$border-light: #E5E5E5;
+
+// ===== 共用設定 =====
+.cm-section-title {
+    font-weight: 700;
+    color: $primary;
+}
+
+.cm-btn-accent {
+    background-color: $accent;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: darken($accent, 8%);
+        transform: translateY(-1px);
+    }
+}
+
+// ===== Breadcrumb =====
+.cm-breadcrumb {
+    .breadcrumb {
+        --bs-breadcrumb-divider: '>';
+        font-size: 0.95rem;
+
+        li+li::before {
+            color: $gray-text;
+            margin: 0 6px;
+        }
+
+        a {
+            color: $gray-text;
+            text-decoration: none;
+
+            &:hover {
+                color: darken($gray-text, 10%);
+                text-decoration: underline;
+            }
+        }
+
+        .active {
+            color: $primary;
+            font-weight: 600;
+        }
+    }
+}
+
+// ===== 食譜主視覺 =====
+.cm-recipe-hero {
+    position: relative;
+    padding: 7rem 0 9rem;
+    overflow: visible; // ✅ 保證雞腿與右側資訊都能顯示
+    z-index: 0;
+
+    // 背景灰底
+    .cm-recipe-hero-bg {
+        position: absolute;
+        top: 3rem;
+        left: 50%;
+        width: 100%;
+        height: 65%;
+        background-color: $bg-card;
+        border-radius: 12px;
+        transform: translateX(-50%);
+        // overflow: visible;
+        // clip-path: inset(0 round 12px);
+        z-index: 1;
+    }
+
+    // Bootstrap row
+    .row {
+        position: relative;
+        z-index: 2; // ✅ 右側內容浮在灰底上方
+    }
+
+    // 雞腿主圖
+    .cm-hero-img {
+        position: relative;
+        margin-top: -5rem; // ✅ 圖片上凸
+        margin-left: 3rem;
+        max-width: 460px;
+        z-index: 2;
+
+        img {
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    // 食材準備卡
+    .cm-ingredients-box {
+        position: relative;
+        width: 70%;
+        padding-top: 1rem;
+        margin-left: 3rem;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 8px; // 
+            width: 100%; // 
+            height: 100%;
+            background-color: #E8EEE9;
+            z-index: 0;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05); // 
+        }
+
+        .cm-ingredients-inner {
+            background-color: #fff;
+            padding: 2rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); // 
+            position: relative;
+            z-index: 2;
+        }
+
+        .cm-section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: $primary;
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cm-ingredients-list {
+            .col-6 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.95rem;
+                color: #333;
+                padding: 6px 0;
+                gap: 1.25rem;
+
+                span:first-child {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .cm-btn-accent {
+            background-color: $accent;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            width: 140px;
+            padding: 0.8rem 0;
+            font-weight: 700;
+            transition: all 0.2s ease;
+
+            // &:hover {
+            //     background-color: darken($accent, 8%);
+            //     transform: translateY(-1px);
+            // }
+        }
+    }
+
+}
+
+.cm-recipe-page {
+
+    // 通用段落設定
+    .cm-p {
+        color: #2D2E2E; // 
+        font-size: 2rem;
+        line-height: 1.7;
+        margin-bottom: 0.75rem; // 增加段落間距        
+    }
+
+    // 上方時間、人數標籤
+    .cm-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        border: 1px solid #5C7C5F; // 主綠灰框線
+        color: #5C7C5F;
+        border-radius: 1rem; // 
+        padding: 0.25rem 0.75rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        background-color: #EFF6F3; // 淡灰綠底
+    }
+
+    // 食譜標題
+    h1 {
+        color: #2D2E2E;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+    }
+
+    // 難度星星區塊
+    .cm-rating {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #2D2E2E;
+
+        .text-warning {
+            margin-left: 0.25rem; // 保持文字與星星之間間距
+        }
+    }
+}
+
+
+// ===== 烹飪步驟 =====
+.cm-steps {
+    margin-top: 4rem;
+
+    .cm-section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #5C7C5F;
+        margin-bottom: 2rem;
+    }
+
+    .cm-step-card {
+        display: flex;
+        align-items: center;
+        /* ✅ 垂直置中，避免圖卡高低不齊 */
+        position: relative;
+        margin-bottom: 5rem;
+        min-height: 300px;
+        /* ✅ 統一卡片高度，避免背景因文字高低不同而亂掉 */
+
+        /* 背景色卡 */
+        &::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 88%;
+            height: calc(100% - 20px);
+            background-color: #F6F1EC;
+            border-radius: 8px;
+            z-index: 0;
+        }
+
+        /* 文字區 */
+        .cm-step-text {
+            max-width: 55%;
+            position: relative;
+            z-index: 2;
+            padding: 3rem;
+            color: #2D2E2E;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 4rem;
+                width: 8px;
+                height: 5rem;
+                background-color: #5C7C5F;
+                border-radius: 8px;
+            }
+
+            .cm-step-header {
+                display: flex;
+                align-items: baseline;
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+                margin-top: 0.5rem;
+            }
+
+            .cm-step-label {
+                color: #5C7C5F;
+                font-weight: 700;
+                font-size: 1.6rem;
+            }
+
+            .cm-step-number-outline {
+                font-size: 5rem;
+                font-weight: 700;
+                color: transparent;
+                -webkit-text-stroke: 1.5px #5C7C5F;
+                opacity: 0.3;
+                line-height: 1;
+            }
+
+            h4 {
+                font-size: 1.8rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin-bottom: 0;
+            }
+        }
+
+        /* 圖片設定 */
+        img {
+            width: 43%;
+            object-fit: cover;
+            border-radius: 8px;
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            /* ✅ 鎖定圖片從背景上緣開始 */
+            right: -10px;
+            /* ✅ 向右凸出一點 */
+            transform: translateY(-20px);
+            /* ✅ 整體上凸出背景 */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cm-step-card {
+            flex-direction: column;
+            /* ✅ 改成直向排列 */
+            align-items: center;
+
+            &::before {
+                width: 100%;
+                /* ✅ 背景改滿版更好看 */
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+
+            .cm-step-text {
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+                text-align: center;
+
+                &::before {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 2rem;
+                    height: 2rem;
+                }
+
+                .cm-step-header {
+                    justify-content: center;
+                }
+
+                h4 {
+                    font-size: 1.5rem;
+                    margin-top: 1rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+            }
+
+            img {
+                position: static;
+                /* ✅ 不再絕對定位 */
+                width: 90%;
+                /* ✅ 讓圖片置中顯示 */
+                margin-top: 1.5rem;
+                transform: none;
+                /* ✅ 移除上凸位移 */
+                right: auto;
+                top: auto;
+            }
+        }
+    }
+}
+
+// ===== 營養資訊 =====
+.cm-nutrition {
+    .cm-nutrition-card {
+        background-color: #fff;
+        border: 1px solid #E5E5E5;
+        border-radius: 12px;
+    }
+
+    .cm-nutrition-subtitle {
+        color: #3A312C;
+        margin-bottom: 1rem;
+    }
+
+    .cm-nutrition-list li {
+        background: #F4F5F7;
+        border-radius: 8px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+
+        strong {
+            margin-left: auto;
+        }
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+
+        &.protein {
+            background: #F6A65E;
+        }
+
+        &.carb {
+            background: #6BBC88;
+        }
+
+        &.fat {
+            background: #FFD56B;
+        }
+    }
+
+    .cm-nutrition_kcal {
+        color: $primary;
+        text-align: right;
+    }
+}
+
+// ===== 必備食材 =====
+.cm-ingredients-carousel {
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    position: relative;
+    padding: 4rem 0;
+
+    .cm-section-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #5C7C5F;
+        margin-bottom: 1.5rem;
+    }
+
+    /* 輪播容器 */
+    .cm-carousel {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        padding-bottom: 1rem;
+        margin: 0 -0.25rem;
+    }
+
+    /* 單一卡片 */
+    .cm-card {
+        padding: 0;
+
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            position: relative;
+            border: 1px solid #e5e5e5;
+            padding: 1rem;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            /* 上方文字區 */
+            .cm-card-header {
+                position: relative;
+                margin-bottom: 1rem;
+
+                h5 {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: #2d2e2e;
+                    margin-bottom: 0.25rem;
+                }
+
+                p {
+                    color: #757575;
+                    font-size: 0.9rem;
+                    margin: 0;
+                }
+
+                .cm-tag-outline {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 0.8rem;
+                    color: #5c7c5f;
+                    border: 1px solid #5c7c5f;
+                    background-color: transparent;
+                    padding: 0.5rem 1rem;
+                    border-radius: 50rem;
+                }
+            }
+
+            /* 圖片貼齊卡片邊 */
+            .cm-card-img-wrapper {
+                position: relative;
+                width: calc(100% + 2rem);
+                margin-left: -1rem;
+                margin-right: -1rem;
+                overflow: hidden;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 180px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                &:hover {
+                    transform: scale(1.02);
+                }
+            }
+
+            /* 下方價格與按鈕 */
+            .cm-card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
+
+                .cm-price {
+                    color: #5c7c5f;
+                    font-weight: 700;
+                    margin: 0;
+                }
+
+                .cm-btn-accent {
+                    background-color: #b89251;
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    width: 36px;
+                    height: 36px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:hover {
+                        background-color: darken(#b89251, 8%);
+                    }
+                }
+            }
+        }
+    }
+
+    /* 輪播箭頭 */
+    .cm-carousel-arrows {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        .cm-carousel-btn {
+            background-color: #B89251;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: darken(#B89251, 5%);
+            }
+
+            i {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+
+// ===== 一起上桌吧 =====
+.cm-recipes-carousel {
+    padding: 2rem 0;
+
+    h2 {
+        color: $primary;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    .cm-recipe-card {
+        .card {
+            background-color: #F6F1EC; // ✅ 卡片底色
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+
+                h5 {
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    color: #2D2E2E;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    color: #2D2E2E;
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                }
+
+                .cm-difficulty {
+                    font-size: 0.9rem;
+                    color: #5C7C5F;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                    margin-top: 0.75rem;
+
+                    i {
+                        color: #F6A65E;
+                    }
+                }
+
+                .cm-meta {
+                    display: flex;
+                    justify-content: space-between;
+                    color: #5C7C5F;
+                    font-size: 0.9rem;
+                    margin-top: 0.5rem;
+
+                    i {
+                        margin-right: 4px;
+                        color: #5C7C5F;
+                    }
+                }
+
+                .btn {
+                    display: block;
+                    width: 100%;
+                    background-color: #B89251;
+                    color: #fff;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    padding: 0.6rem 0;
+                    margin-top: 1rem;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: darken(#B89251, 5%);
+                    }
+                }
+            }
+        }
+    }
+
+    .cm-carousel-arrows {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .cm-carousel-btn {
+        background-color: #B89251;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0.5rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken(#B89251, 5%);
+        }
+
+        i {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+// ===== 手機版 RWD =====
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    main,
+    .cm-recipe-page,
+    .cm-steps,
+    .cm-recipes-carousel,
+    .cm-ingredients-carousel {
+        overflow-x: hidden;
+    }
+
+    .cm-step-card,
+    .cm-step-card::before {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .cm-step-card .cm-step-text,
+    .cm-ingredients-box,
+    .cm-recipe-page {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+    }
+
+    .cm-card-img-wrapper {
+        width: 100%;
+        margin: 0;
+
+        img {
+            height: 160px;
+        }
+    }
+
+    .cm-carousel {
+        margin: 0;
+        padding: 0 0.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+
+        .cm-card {
+            flex: 0 0 85%;
+            max-width: 85%;
+            scroll-snap-align: start;
+            margin-right: 1rem;
+        }
+    }
+
+    .cm-carousel-arrows {
+        display: none !important;
+    }
+
+    .cm-section-title {
+        font-size: 1.3rem;
+    }
+
+    .cm-recipe-page h1 {
+        font-size: 1.6rem;
+        line-height: 1.4;
+    }
+
+    .cm-recipe-page .cm-p {
+        font-size: 1rem;
+    }
+}

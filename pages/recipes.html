@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 1.引入 header -->
+  <%- include("./layout/header"); -%>
+
+    <!-- 4. 記得包在 heading_top_offset -->
+    <div class="heading_top_offset">
+      <!-- 這裡撰寫 -->
+      <main class="container cm-recipe-page py-5 mb-5">
+        <!--Breadcrumb 導覽列-->
+        <nav aria-label="breadcrumb" class="cm-breadcrumb mb-5">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">首頁</a></li>
+            <li class="breadcrumb-item"><a href="../pages/recipes.html">探索料理</a></li>
+            <li class="breadcrumb-item active" aria-current="page">檸檬迷迭香烤雞腿</li>
+          </ol>
+        </nav>
+        <!--食譜標題與主圖-->
+        <section class="cm-recipe-hero position-relative">
+          <div class="cm-recipe-hero-bg"></div>
+          <div class="row gx-lg-5 align-items-start">
+            <!--左側主圖與食材卡-->
+            <div class="col-lg-6 position-relative">
+              <div class="cm-hero-img ">
+                <img src="../assets/images/recipe/chicken1.png" alt="檸檬迷迭香烤雞腿" class="img-fluid rounded shadow-sm " />
+              </div>
+              <!--食材卡-->
+              <div class="cm-ingredients-box">
+                <div class="cm-ingredients-inner bg-white">
+                  <h3 class="cm-section-title border-bottom pb-2 mb-3">食材準備</h3>
+                  <div class="row g-2 cm-ingredients-list">
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">雞腿</span><span
+                        class="me-3">400g</span>
+                    </div>
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">檸檬</span><span>1顆</span>
+                    </div>
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">新鮮迷迭香</span><span
+                        class="me-3">3枝</span>
+                    </div>
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">橄欖油</span><span>2大匙</span>
+                    </div>
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">黑胡椒</span><span
+                        class="me-3">1/2小匙</span>
+                    </div>
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">海鹽</span><span>1小匙</span>
+                    </div>
+                    <div class="col-6 d-flex justify-content-between"><span class="fw-bold">蒜末</span><span
+                        class="me-3">1小匙</span>
+                    </div>
+                  </div>
+                  <div class="text-end mt-3">
+                    <button class="btn cm-btn-accent px-4">一鍵打包</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--右側食譜資訊-->
+            <div class="col-lg-6">
+              <div class="d-flex gap-3 mb-3">
+                <span class="cm-tag"><i class="bi bi-clock"></i>35分鐘</span>
+                <span class="cm-tag"><i class="bi bi-people"></i>2人份</span>
+              </div>
+              <h1 class="fw-bold mb-4">檸檬迷迭香烤雞腿</h1>
+              <p class="mb-20 cm-p">外皮金黃酥脆，檸檬清香融合迷迭香的淡雅香氣，是簡單卻令人回味的家常西式料理。</p>
+              <ul class="list-unstyled small text-muted mb-3">
+                <li class="fw-bold mb-2">準備時間：15分鐘｜烘烤：20分鐘</li>
+                <li class="fw-bold mb-2">料理類型：西式料理・主菜</li>
+                <li class="fw-bold mb-2">飲食偏好：高蛋白、低碳水、健身餐</li>
+                <li class="fw-bold mb-2">卡路里／份：480 kcal</li>
+              </ul>
+              <div class="cm-rating">
+                <span class="fw-bold">難度：</span><span class="text-warning">★★★★☆</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--烹飪步驟-->
+        <section class="cm-steps mt-5">
+          <h2 class="cm-section-title mb-4">烹飪步驟</h2>
+          <div class="cm-step-card">
+            <div class="cm-step-text">
+              <div class="cm-step-header mb-3">
+                <span class="cm-step-label">Step</span>
+                <span class="cm-step-number-outline">01</span>
+              </div>
+              <h4 class="fw-bold">醃製雞腿</h4>
+              <p>雞腿排加入檸檬汁、橄欖油、海鹽、黑胡椒、蒜末與迷迭香，醃製至少 30 分鐘。</p>
+            </div>
+            <img src="../assets/images/recipe/chicken2.png" class="rounded shadow-sm" alt="醃製雞腿">
+          </div>
+          <!--Step02-->
+          <div class="cm-step-card">
+            <div class="cm-step-text">
+              <div class="cm-step-header mb-3">
+                <span class="cm-step-label">Step</span>
+                <span class="cm-step-number-outline">02</span>
+              </div>
+              <h4 class="fw-bold">烘烤</h4>
+              <p>將雞腿放入烤盤上，皮朝上，烘烤30–35 分鐘至金黃酥脆。</p>
+            </div>
+            <img src="../assets/images/recipe/chicken3.png" class="rounded shadow-sm" alt="烘烤雞腿">
+          </div>
+          <!--Step03-->
+          <div class="cm-step-card">
+            <div class="cm-step-text">
+              <div class="cm-step-header mb-3">
+                <span class="cm-step-label">Step</span>
+                <span class="cm-step-number-outline">03</span>
+              </div>
+              <h3 class="fw-bold">擺盤</h3>
+              <p>搭配檸檬片與新鮮香草即可上桌。</p>
+            </div>
+            <img src="../assets/images/recipe/chicken4.png" class="rounded shadow-sm" alt="擺盤">
+          </div>
+        </section>
+        <!--營養資訊-->
+        <section class="cm-nutrition mt-5">
+          <h2 class="cm-section-title mb-4">營養資訊</h2>
+          <div class="row align-items-center gy-4 cm-nutrition-card p-4">
+            <div class="col-md-6 text-center">
+              <img src="../assets/images/recipe/nutrition-chart.png" alt="營養資訊圖" class="img-fluid cm-nutrition-img">
+            </div>
+            <div class="col-md-6">
+              <h5 class="fw-bold cm-nutrition-subtitle">以每份計算</h5>
+              <ul class="list-unstyled cm-nutrition-list">
+                <li><span class="dot protein"></span>蛋白質<strong>18g</strong></li>
+                <li><span class="dot carb"></span>碳水化合物<strong>4g</strong></li>
+                <li><span class="dot fat"></span>脂肪<strong>20g</strong></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!--必備食材-->
+        <section class="cm-ingredients-carousel py-5 position-relative">
+          <h2 class="cm-section-title mb-4">必備食材</h2>
+          <div class="row flex-nowrap overflow-auto cm-carousel">
+            <!--單一食物卡片-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2">
+              <div class="card shadow-sm border-1 h-100">
+                <div class="cm-card-header">
+                  <h5 class="fw-bold mb-2">迷迭香</h5>
+                  <p class="small text-muted mt-1">3枝</p>
+                  <span class="badge rounded-pill cm-tag-outline">辛香料</span>
+                </div>
+                <div class="cm-card-img-wrapper">
+                  <img src="../assets/images/recipe/rosemary.png" class="card-img-top" alt="迷迭香" />
+                </div>
+                <div class="cm-card-footer">
+                  <p class="fw-bold text-success">20元</p>
+                  <button class="btn cm-btn-accent btn-sm"><i class="bi bi-bag"></i></button>
+                </div>
+              </div>
+            </div>
+            <!--檸檬卡片-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2">
+              <div class="card shadow-sm border-1 h-100">
+                <div class="cm-card-header">
+                  <h5 class="fw-bold mb-2">檸檬</h5>
+                  <p class="small text-muted mt-1">1顆</p>
+                  <span class="badge rounded-pill cm-tag-outline">蔬果</span>
+                </div>
+                <div class="cm-card-img-wrapper">
+                  <img src="../assets/images/recipe/lemon.jpg" class="card-img-top" alt="檸檬" />
+                </div>
+                <div class="cm-card-footer">
+                  <p class="fw-bold text-success">10元</p>
+                  <button class="btn cm-btn-accent btn-sm"><i class="bi bi-bag"></i></button>
+                </div>
+              </div>
+            </div>
+            <!--雞腿卡片-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2">
+              <div class="card shadow-sm border-1 h-100">
+                <div class="cm-card-header">
+                  <h5 class="fw-bold mb-2">雞腿肉</h5>
+                  <p class="small text-muted mt-1">400g</p>
+                  <span class="badge rounded-pill cm-tag-outline">肉類</span>
+                </div>
+                <div class="cm-card-img-wrapper">
+                  <img src="../assets/images/recipe/drumstick.png" class="card-img-top" alt="雞腿肉" />
+                </div>
+                <div class="cm-card-footer">
+                  <p class="fw-bold text-success">200元</p>
+                  <button class="btn cm-btn-accent btn-sm"><i class="bi bi-bag"></i></button>
+                </div>
+              </div>
+            </div>
+            <!--黑胡椒卡片-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2">
+              <div class="card shadow-sm border-1 h-100">
+                <div class="cm-card-header">
+                  <h5 class="fw-bold mb-2">黑胡椒</h5>
+                  <p class="small text-muted mt-1">1/2小匙</p>
+                  <span class="badge rounded-pill cm-tag-outline">辛香料</span>
+                </div>
+                <div class="cm-card-img-wrapper">
+                  <img src="../assets/images/recipe/blackpepper.png" class="card-img-top" alt="黑胡椒" />
+                </div>
+                <div class="cm-card-footer">
+                  <p class="fw-bold text-success">5元</p>
+                  <button class="btn cm-btn-accent btn-sm"><i class="bi bi-bag"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cm-carousel-arrows">
+            <button class="cm-carousel-btn prev"><i class="bi bi-chevron-left"></i></button>
+            <button class="cm-carousel-btn next"><i class="bi-chevron-right"></i></button>
+          </div>
+        </section>
+        <!--一起上桌吧-->
+        <section class="cm-recommend mt-5 position-relative cm-recipes-carousel">
+          <h2 class="cm-section-title mb-4">一起上桌吧</h2>
+
+          <div class="row flex-nowrap overflow-auto cm-carousel" id="recommendCarousel">
+            <!--卡片1-->
+            <div class="col-10 col-sm-6 col-md-3   cm-card p-2 cm-recipe-card">
+              <div class="card  h-100 shadow-sm border-0">
+                <img src="../assets/images/recipe/misosoup.jpg" class="card-img-top" alt="味噌鮭魚湯" />
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold">味噌鮭魚湯</h5>
+                    <p class="small text-muted">溫潤味噌湯底配上鮮嫩鮭魚片，暖心暖胃的日式家常湯品。</p>
+                    <div><span class="fw-semibold me-1 mb-1">難度：</span><span class="text-warning">★★★☆☆</span></div>
+                    <div class="d-flex justify-content-between  mb-2 cm-meta">
+                      <span><i class="bi bi-clock me-1 d-flex "></i>20分鐘</span>
+                      <span><i class="bi bi-people me-1 d-flex"></i>2人份</span>
+                    </div>
+                  </div>
+                  <button class="btn cm-btn-accent w-100 mt-3">查看食譜</button>
+                </div>
+              </div>
+            </div>
+            <!--卡片2-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2 cm-recipe-card">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="../assets/images/recipe/salmon.jpg" class="card-img-top" alt="檸香奶油煎鮭魚" />
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold">檸香奶油煎鮭魚</h5>
+                    <p class="small text-muted">外皮酥香、肉質鮮嫩，佐以檸檬的清爽與迷迭香的芳香，不需太多調味料就可以做出餐廳級的味道</p>
+                    <div><span class="fw-semibold me-1 mb-1">難度：</span><span class="text-warning">★★★★☆</span></div>
+                    <div class="d-flex justify-content-between  mb-2 cm-meta">
+                      <span><i class="bi bi-clock me-1 d-flex"></i>25分鐘</span>
+                      <span><i class="bi bi-people me-1 d-flex"></i>2人份</span>
+                    </div>
+                  </div>
+                  <button class="btn cm-btn-accent w-100 mt-3">查看食譜</button>
+                </div>
+              </div>
+            </div>
+            <!--卡片3-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2 cm-recipe-card">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="../assets/images/recipe/pepperpork.jpg" class="card-img-top" alt="黑胡椒蜜汁豬排" />
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold">黑胡椒蜜汁豬排</h5>
+                    <p class="small text-muted">外層香煎鎖汁，淋上香甜微辣的黑胡椒蜜汁，口感濃郁又下飯。</p>
+                    <div><span class="fw-semibold me-1 mb-1">難度：</span><span class="text-warning">★★★★☆</span></div>
+                    <div class="d-flex justify-content-between mb-2 cm-meta">
+                      <span><i class="bi bi-clock me-1 d-flex"></i>30分鐘</span>
+                      <span><i class="bi bi-people me-1 d-flex"></i>2人份</span>
+                    </div>
+                  </div>
+                  <button class="btn cm-btn-accent w-100 mt-3">查看食譜</button>
+                </div>
+              </div>
+            </div>
+            <!--卡片4-->
+            <div class="col-10 col-sm-6 col-md-3 cm-card p-2 cm-recipe-card">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="../assets/images/recipe/kimchipork.jpg" class="card-img-top" alt="韓式泡菜炒豬肉" />
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold">韓式泡菜炒豬肉</h5>
+                    <p class="small text-muted">微辣泡菜搭配鮮嫩豬肉，開胃又下飯，香氣撲鼻。</p>
+                    <div><span class="fw-semibold me-1 mb-1">難度：</span><span class="text-warning ">★★★☆☆</span>
+                    </div>
+                    <div class="d-flex justify-content-between cm-meta mb-2 align-items-end">
+                      <span><i class="bi bi-clock me-1 d-flex"></i>20分鐘</span>
+                      <span><i class="bi bi-people me-1 d-flex"></i>2人份</span>
+                    </div>
+                  </div>
+                  <button class="btn cm-btn-accent w-100 mt-3">查看食譜</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cm-carousel-arrows">
+            <button class="cm-carousel-btn prev"><i class="bi bi-chevron-left"></i></button>
+            <button class="cm-carousel-btn next"><i class="bi bi-chevron-right"></i></button>
+          </div>
+        </section>
+
+
+
+      </main>
+    </div>
+    <!-- 2.引入 footer -->
+    <%- include("./layout/footer"); -%>
+
+      <!-- 3. link 必須的 javaScript檔案  -->
+      <script type="module" src="../main.js"></script>
+      <script type="module" src="/assets/js/tools.js"></script>
+      <script src="../assets/js/recipe-detail.js"></script>
+</body>
+
+</html>
