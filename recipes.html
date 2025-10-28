@@ -20,10 +20,11 @@
     <div class="d-flex w-100 align-items-center justify-content-between">
       <!-- 左方logo -->
       <div>
-        <a class="py-6 d-block d-md-none" href="#">
+        <a class="py-6 d-block d-md-none" href="https://jasmine-0311.github.io/CookingMoment/index.html">
           <img src="/CookingMoment/assets/logo_small-dqC3dKT1.png" alt="此食此刻Logo 小" />
         </a>
-        <a class="navbar-brand py-md-0 d-none d-md-block" href="#">
+        <a class="navbar-brand py-md-0 d-none d-md-block"
+          href="https://jasmine-0311.github.io/CookingMoment/index.html">
           <img src="/CookingMoment/assets/logo_big-CjHlcHsX.png" alt="此食此刻Logo 大" />
         </a>
       </div>
@@ -31,11 +32,9 @@
       <!-- 中間自適應的div -->
       <div class="flex-grow-1 mx-2 d-none d-md-block">
         <div class="">
-          <ul
-            class="list-unstyled d-flex justify-content-evenly h5 text-primary"
-          >
+          <ul class="list-unstyled d-flex justify-content-evenly h5 text-primary">
             <li>
-              <a class="text-decoration-none" href="#product_list">產品列表</a>
+              <a class="text-decoration-none" href="https://jasmine-0311.github.io/CookingMoment/products.html">產品列表</a>
             </li>
             <li>
               <a class="text-decoration-none" href="#table_story">餐桌故事</a>
@@ -52,53 +51,31 @@
       <div class="d-flex align-items-center">
         <!-- 購物車 -->
         <div class="position-relative pt-3">
-          <span class="icon-cart mx-7 pt-5 z-2"></span>
-          <span
-            class="position-absolute bg-Accent text-white cart-tag rounded-pill py-1 px-2"
-            id="header-order-qty"
-          >
-            2
-          </span>
+          <a href="https://jasmine-0311.github.io/CookingMoment/shoppingcart.html">
+            <span class="icon-cart mx-7 pt-5 z-2"></span>
+            <span class="position-absolute bg-Accent text-white cart-tag rounded-pill py-1 px-2" id="header-order-qty">
+              2
+            </span></a>
         </div>
 
         <!-- 人像 & user alias-->
-        <div
-          class="mx-7 flex-row"
-          id="header-login-status"
-          data-logined="true"
-          data-bs-target="#userOffCanvas"
-          aria-controls="offcanvasNavbar"
-          aria-label="Toggle navigation"
-        >
+        <div class="mx-7 flex-row" id="header-login-status" data-logined="true" data-bs-target="#userOffCanvas"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <div id="header-avatar" class="d-block">
-            <img
-              src="/CookingMoment/assets/avatar-1-cp2HwrEX.png"
-              class="avatar rounded-circle"
-              alt="user avatar"
-            />
+            <img src="/CookingMoment/assets/avatar-1-cp2HwrEX.png" class="avatar rounded-circle" alt="user avatar" />
             <span class="fs-7 text-primary">Jenny</span>
           </div>
-          <a
-            href="#"
-            class="Body2 text-secondary text-decoration-none d-none"
-            id="header-toLogin"
-            >會員登入</a
-          >
+          <a href="#" class="Body2 text-secondary text-decoration-none d-none" id="header-toLogin">會員登入</a>
         </div>
 
         <!-- menu 小版之下拉 功能清單 -->
         <div class="mx-7 d-block d-md-none">
-          <button
-            class="border-0"
-            type="button"
-            id="header-menu-btn"
-            data-bs-toggle="dropdown"
-          >
+          <button class="border-0" type="button" id="header-menu-btn" data-bs-toggle="dropdown">
             <span class="icon-menu"></span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" id="header-menu-list">
             <li class="dropdown-item h5 text-primary" href="">
-              <a class="text-decoration-none" href="#product_list">產品列表</a>
+              <a class="text-decoration-none" href="https://jasmine-0311.github.io/CookingMoment/products.html">產品列表</a>
             </li>
             <li class="dropdown-item h5 text-primary" href="">
               <a class="text-decoration-none" href="#table_story">餐桌故事</a>
@@ -115,28 +92,14 @@
 </div>
 
 <!-- user profile  offcanvas  -->
-<div
-  class="offcanvas offcanvas-end"
-  tabindex="-1"
-  id="header-userOffCanvas"
-  aria-labelledby="offcanvasNavbarLabel"
->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="header-userOffCanvas" aria-labelledby="offcanvasNavbarLabel">
   <div class="p-10 d-flex justify-content-end">
-    <button
-      type="button"
-      id="header-close-usercanvas"
-      class="btn-close p-5 fs-8"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
+    <button type="button" id="header-close-usercanvas" class="btn-close p-5 fs-8" data-bs-dismiss="offcanvas"
+      aria-label="Close"></button>
   </div>
   <div class="offcanvas-body p-7">
     <div class="d-flex mb-5">
-      <img
-        src="/CookingMoment/assets/avatar-1-cp2HwrEX.png"
-        alt="user picture"
-        class="d-block my-2 me-2 avatar border-1"
-      />
+      <img src="/CookingMoment/assets/avatar-1-cp2HwrEX.png" alt="user picture" class="d-block my-2 me-2 avatar border-1" />
       <div class="mb-10">
         <p class="fs-7 text-primary fw-bolder m-0">Jessica</p>
         <p class="fs-7 text-secondary">jenny@gamil.com</p>
@@ -166,7 +129,6 @@
     </div>
   </div>
 </div>
-
     <!-- 4. 記得包在 heading_top_offset -->
     <div class="heading_top_offset">
       <!-- 這裡撰寫 -->
@@ -174,9 +136,10 @@
         <!--Breadcrumb 導覽列-->
         <nav aria-label="breadcrumb" class="cm-breadcrumb mb-5">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../index.html">首頁</a></li>
-            <li class="breadcrumb-item"><a href="../pages/recipes.html">探索料理</a></li>
-            <li class="breadcrumb-item active" aria-current="page">檸檬迷迭香烤雞腿</li>
+            <li class="breadcrumb-item"><a href="https://jasmine-0311.github.io/CookingMoment/index.html">首頁</a></li>
+            <li class="breadcrumb-item"><a href="https://jasmine-0311.github.io/CookingMoment/products.html">探索料理</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">檸香烘烤雞腿</li>
           </ol>
         </nav>
         <!--食譜標題與主圖-->
@@ -186,7 +149,7 @@
             <!--左側主圖與食材卡-->
             <div class="col-lg-6 position-relative">
               <div class="cm-hero-img ">
-                <img src="/CookingMoment/assets/chicken1-D4xXrs5G.png" alt="檸檬迷迭香烤雞腿" class="img-fluid rounded shadow-sm " />
+                <img src="/CookingMoment/assets/chicken1-D4xXrs5G.png" alt="檸香烘烤雞腿" class="img-fluid rounded shadow-sm " />
               </div>
               <!--食材卡-->
               <div class="cm-ingredients-box">
@@ -220,11 +183,11 @@
             </div>
             <!--右側食譜資訊-->
             <div class="col-lg-6">
-              <div class="d-flex gap-3 mb-3">
+              <div class="d-flex gap-3 Mb-md-18">
                 <span class="cm-tag"><i class="bi bi-clock"></i>35分鐘</span>
                 <span class="cm-tag"><i class="bi bi-people"></i>2人份</span>
               </div>
-              <h1 class="fw-bold mb-4">檸檬迷迭香烤雞腿</h1>
+              <h1 class="fw-bold mb-4">檸香烘烤雞腿</h1>
               <p class="mb-20 cm-p">外皮金黃酥脆，檸檬清香融合迷迭香的淡雅香氣，是簡單卻令人回味的家常西式料理。</p>
               <ul class="list-unstyled small text-muted mb-3">
                 <li class="fw-bold mb-2">準備時間：15分鐘｜烘烤：20分鐘</li>
